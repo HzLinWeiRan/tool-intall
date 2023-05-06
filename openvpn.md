@@ -43,6 +43,11 @@ docker run -v /path/to/config:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADM
 
 其中，/path/to/config 是配置文件的存放路径。
 
+```
+docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full test nopass
+docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient test > /tmp/test.ovpn
+```
+
 6. 安装 OpenVPN 客户端
 
 在客户端上安装 OpenVPN 客户端，并使用生成的证书和密钥连接到 VPN 服务器。
